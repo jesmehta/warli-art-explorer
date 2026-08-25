@@ -1,0 +1,5 @@
+{
+  "animal": ["fish", "cow", "bird"],
+  "activity": ["harvest", "sleep", "selling"],
+  "object": []
+}
