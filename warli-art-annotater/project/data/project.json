@@ -1,4 +1,11 @@
 {
   "projectName": "Image Atlas",
-  "defaultGrid": 10
+  "defaultGrid": 10,
+  "tagShortcuts": {
+    "animal": {
+      "fish": "f",
+      "cow": "c",
+      "bird": "b"
+    }
+  }
 }
