@@ -1,47 +1,80 @@
-# Image Atlas Cropper — prototype v0.1
+# Warli Art Annotater v0.2
 
-Local-first browser tool for extracting full-resolution JPG crops while recording portable spatial and semantic metadata.
+A local-first browser tool for annotating larger Warli source images and extracting full-resolution JPG crops with reusable spatial and label metadata.
 
-## Run
+## Setup
 
 1. Install Node.js 18+.
-2. Open a terminal in this folder.
-3. Run `npm install`.
-4. Put source `.jpg`/`.jpeg` files in `project/source/`.
-5. Run `npm start`.
-6. Open `http://localhost:3000`.
+2. Put source JPG/JPEG files in `project/source/`.
+3. From the project folder run:
 
-## Data model
+   ```bash
+   npm install
+   npm start
+   ```
 
-- `project/source/` — untouched source JPGs.
-- `project/crops/` — automatically generated full-resolution crops.
-- `project/data/crops.json` — reusable crop metadata.
-- `project/data/labels.json` — hand-editable category → tag hierarchy.
-- `project/data/project.json` — project settings, currently default grid resolution.
+   If Windows PowerShell blocks `npm.ps1`, use `npm.cmd install` and `npm.cmd start`, or run the commands in Command Prompt.
 
-Filename convention:
+4. Open `http://localhost:3000`.
 
-`<source>_<serial>_<centre-grid>_<primary-category>_<primary-tag>.jpg`
+## Core interaction
 
-Example: `market-scene_003_C7_animal_fish.jpg`
+- Move the mouse to position the crop region.
+- `[` / `]` decrease/increase the overall **square** size. If the current region is rectangular, either key first resets it to a square based on the average of its width and height, then resizes it.
+- The crop region always remains centred on the mouse. Arrow keys resize width or height symmetrically:
+  - `←` increases width
+  - `→` decreases width
+  - `↑` increases height
+  - `↓` decreases height
+- `Alt` makes arrow or bracket adjustments finer.
+- Plain click opens a tag cloud for the currently selected category beside the cursor. Clicking a tag captures the region.
+- Hold a tag shortcut key and click to capture immediately with that tag.
+- `Ctrl/Cmd + Z` removes the most recent crop for the current source image.
+- `Delete` removes the selected crop.
+- `Esc` closes the tag cloud and clears selection.
 
-Each crop also stores normalized x/y/width/height, grid centre, grid bounds, primary label, and additional label pairs. Normalized bounds allow later interfaces to locate a crop precisely at any display size.
+## Labels and shortcuts
 
-## Current controls
+Labels remain editable in `project/data/labels.json`. Categories can be selected once and kept active while many crops are captured.
 
-- Mouse: move crop rectangle.
-- Click: capture from original full-resolution source.
-- `S + arrows`: resize as a square.
-- `R + left/right`: width; `R + up/down`: height.
-- `Shift`: larger resize step.
-- `Alt`: finer resize step.
-- `Ctrl/Cmd + Z`: delete/undo latest crop for current source.
-- `Delete`: delete selected crop.
+Each tag can have a one-character shortcut. Shortcuts are stored in `project/data/project.json` under `tagShortcuts`, for example:
 
-## Implemented in v0.1
+```json
+{
+  "tagShortcuts": {
+    "animal": {
+      "peacock": "p",
+      "cow": "c"
+    },
+    "activity": {
+      "meal": "m"
+    }
+  }
+}
+```
 
-Multiple source images; source switching; selectable 10/15/20/25/30 grids; spreadsheet-style grid coordinates; full-resolution extraction; hierarchical labels; extra label pairs; persistent hand-editable labels JSON; automatic JPG saving; crop metadata; thumbnail history; translucent previous-crop overlays; thumbnail/location highlighting; delete and basic undo.
+The interface automatically proposes unused characters for new tags. Select a tag in the sidebar to change its shortcut manually.
 
-## Intentional next-stage items
+## Files
 
-Relabel existing captures; drag/resize an existing crop; filters/search; stronger undo history; label keyboard shortcuts; project creation/import UI; validation when `labels.json` is hand-edited; downstream public exploration interface.
+```text
+project/
+├─ source/       original JPG source images
+├─ crops/        extracted full-resolution JPG crops
+└─ data/
+   ├─ crops.json    crop records and normalized bounds
+   ├─ labels.json   hand-editable categories and tags
+   └─ project.json  project settings, default grid, shortcuts
+```
+
+Crop filenames keep the source ID, serial number, centre grid cell, primary category, and primary tag. Richer information—including grid bounds, normalized crop bounds, and additional labels—lives in `crops.json`.
+
+## v0.2 changes
+
+- One-handed crop sizing: brackets for square size; arrows resize width/height symmetrically around the mouse.
+- Rectangles reset to their average-sized square when brackets are used.
+- Hovering a captured thumbnail highlights the matching source region without changing selection.
+- Hovering an existing source-region overlay highlights the matching thumbnail; clicking it selects that crop.
+- Plain click opens an in-place tag cloud from the active category.
+- Tag shortcut + click captures immediately.
+- Persistent per-category tag shortcuts.

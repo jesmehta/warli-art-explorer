@@ -17,7 +17,7 @@ function readJSON(f, fallback){ try{return JSON.parse(fs.readFileSync(f,'utf8'))
 function writeJSON(f, obj){ fs.writeFileSync(f, JSON.stringify(obj,null,2)); }
 if(!fs.existsSync(CROPS_JSON)) writeJSON(CROPS_JSON, []);
 if(!fs.existsSync(LABELS_JSON)) writeJSON(LABELS_JSON, {animal:['fish','cow','bird'],activity:['harvest','sleep','selling'],object:[]});
-if(!fs.existsSync(PROJECT_JSON)) writeJSON(PROJECT_JSON, {projectName:'Image Atlas',defaultGrid:10});
+if(!fs.existsSync(PROJECT_JSON)) writeJSON(PROJECT_JSON, {projectName:'Warli Art Annotater',defaultGrid:10,tagShortcuts:{}});
 app.use(express.json({limit:'2mb'}));
 app.use(express.static(path.join(ROOT,'public')));
 app.use('/source', express.static(SOURCE));
@@ -49,4 +49,4 @@ app.post('/api/crop', async (req,res)=>{
 });
 app.put('/api/crop/:id',(req,res)=>{ const records=readJSON(CROPS_JSON,[]); const i=records.findIndex(r=>r.id===req.params.id); if(i<0)return res.status(404).json({error:'Not found'}); records[i]={...records[i],...req.body,id:records[i].id}; writeJSON(CROPS_JSON,records); res.json(records[i]); });
 app.delete('/api/crop/:id',(req,res)=>{ let records=readJSON(CROPS_JSON,[]); const r=records.find(x=>x.id===req.params.id); if(!r)return res.status(404).json({error:'Not found'}); try{fs.unlinkSync(path.join(CROPS,r.filename))}catch{} records=records.filter(x=>x.id!==req.params.id); writeJSON(CROPS_JSON,records); res.json({ok:true}); });
-app.listen(PORT,()=>console.log(`Image Atlas Cropper: http://localhost:${PORT}`));
+app.listen(PORT,()=>console.log(`Warli Art Annotater: http://localhost:${PORT}`));

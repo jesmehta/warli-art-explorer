@@ -1,5 +1,46 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Image Atlas Cropper</title><link rel="stylesheet" href="style.css"></head><body>
-<header><strong>Image Atlas Cropper</strong><span>Source</span><select id="source"></select><span>Grid</span><select id="grid"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option></select><span id="status"></span></header>
-<main><section class="stage"><div id="canvasWrap"><canvas id="canvas"></canvas></div><div class="help">Mouse: move crop · Click: capture · S + ↑/↓: square size · R + ←/→: width · R + ↑/↓: height · Shift: larger step · Alt: fine step · Ctrl/Cmd+Z: undo · Delete: delete selected</div></section>
-<aside><h3>Primary label</h3><label>Category<select id="cat"></select></label><label>Tag<select id="tag"></select></label><div class="inline"><input id="newCat" placeholder="new category"><button id="addCat">+</button></div><div class="inline"><input id="newTag" placeholder="new tag"><button id="addTag">+</button></div><h3>Extra labels</h3><div id="extras"></div><button id="addExtra">+ Add label pair</button><h3>Crop</h3><div id="cropInfo">—</div><button id="delete" disabled>Delete selected</button></aside></main>
-<section class="thumbs"><h3>Captured crops</h3><div id="thumbList"></div></section><script src="app.js"></script></body></html>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Warli Art Annotater</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <strong>Warli Art Annotater</strong>
+  <span>Source</span><select id="source"></select>
+  <span>Grid</span><select id="grid"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option></select>
+  <span id="status"></span>
+</header>
+<main>
+  <section class="stage">
+    <div id="canvasWrap">
+      <canvas id="canvas"></canvas>
+      <div id="tagCloud" class="tag-cloud hidden"></div>
+    </div>
+    <div class="help">Mouse: position · Click: choose tag/capture · Shortcut + click: instant capture · [ / ]: square size · Arrows: push one edge outward · Shift + arrow: pull it inward · Alt: fine step · Ctrl/Cmd+Z: undo · Delete: delete selected</div>
+  </section>
+  <aside>
+    <h3>Primary label</h3>
+    <label>Category<select id="cat"></select></label>
+    <label>Tag<select id="tag"></select></label>
+    <label>Shortcut<input id="shortcut" maxlength="1" placeholder="key"></label>
+    <div class="inline"><input id="newCat" placeholder="new category"><button id="addCat">+</button></div>
+    <div class="inline"><input id="newTag" placeholder="new tag"><button id="addTag">+</button></div>
+    <p class="note">Shortcuts are per category. Hold the key while clicking the image to capture immediately with that tag.</p>
+    <h3>Extra labels</h3>
+    <div id="extras"></div>
+    <button id="addExtra">+ Add label pair</button>
+    <h3>Crop</h3>
+    <div id="cropInfo">—</div>
+    <button id="delete" disabled>Delete selected</button>
+  </aside>
+</main>
+<section class="thumbs">
+  <h3>Captured crops</h3>
+  <div id="thumbList"></div>
+</section>
+<script src="app.js"></script>
+</body>
+</html>

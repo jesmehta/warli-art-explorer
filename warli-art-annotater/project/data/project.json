@@ -1,11 +1,5 @@
 {
-  "projectName": "Image Atlas",
+  "projectName": "Warli Art Annotater",
   "defaultGrid": 10,
-  "tagShortcuts": {
-    "animal": {
-      "fish": "f",
-      "cow": "c",
-      "bird": "b"
-    }
-  }
+  "tagShortcuts": {}
 }
