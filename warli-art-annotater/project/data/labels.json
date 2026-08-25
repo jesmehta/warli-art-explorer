@@ -1,5 +1,14 @@
 {
-  "animal": ["fish", "cow", "bird"],
-  "activity": ["harvest", "sleep", "selling"],
-  "object": []
+  "animal": [
+    "fish",
+    "cow",
+    "bird"
+  ],
+  "activity": [
+    "harvest",
+    "sleep",
+    "selling"
+  ],
+  "object": [],
+  "ritual": []
 }

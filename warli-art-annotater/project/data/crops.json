@@ -1,1 +1,219 @@
-[]
+[
+  {
+    "id": "images_001",
+    "source": "images.jpeg",
+    "serial": 1,
+    "grid": {
+      "resolution": 10,
+      "centre": "F3",
+      "bounds": {
+        "start": "F2",
+        "end": "G3"
+      }
+    },
+    "bounds": {
+      "x": 0.5102511773940346,
+      "y": 0.16762951334379905,
+      "width": 0.12,
+      "height": 0.12
+    },
+    "primaryLabel": {
+      "category": "animal",
+      "tag": "fish"
+    },
+    "labels": [
+      {
+        "category": "animal",
+        "tag": "fish"
+      }
+    ],
+    "filename": "images_001_f3_animal_fish.jpg",
+    "createdAt": "2026-08-25T08:00:05.011Z"
+  },
+  {
+    "id": "images_002",
+    "source": "images.jpeg",
+    "serial": 2,
+    "grid": {
+      "resolution": 10,
+      "centre": "E5",
+      "bounds": {
+        "start": "D5",
+        "end": "E6"
+      }
+    },
+    "bounds": {
+      "x": 0.3564050235478807,
+      "y": 0.4313657770800628,
+      "width": 0.12,
+      "height": 0.12
+    },
+    "primaryLabel": {
+      "category": "animal",
+      "tag": "cow"
+    },
+    "labels": [
+      {
+        "category": "animal",
+        "tag": "cow"
+      }
+    ],
+    "filename": "images_002_e5_animal_cow.jpg",
+    "createdAt": "2026-08-25T08:00:06.301Z"
+  },
+  {
+    "id": "images_003",
+    "source": "images.jpeg",
+    "serial": 3,
+    "grid": {
+      "resolution": 10,
+      "centre": "I6",
+      "bounds": {
+        "start": "I5",
+        "end": "J6"
+      }
+    },
+    "bounds": {
+      "x": 0.8399215070643642,
+      "y": 0.461193092621664,
+      "width": 0.12,
+      "height": 0.12
+    },
+    "primaryLabel": {
+      "category": "animal",
+      "tag": "cow"
+    },
+    "labels": [
+      {
+        "category": "animal",
+        "tag": "cow"
+      }
+    ],
+    "filename": "images_003_i6_animal_cow.jpg",
+    "createdAt": "2026-08-25T08:00:07.617Z"
+  },
+  {
+    "id": "images_004",
+    "source": "images.jpeg",
+    "serial": 4,
+    "grid": {
+      "resolution": 10,
+      "centre": "C8",
+      "bounds": {
+        "start": "B8",
+        "end": "D9"
+      }
+    },
+    "bounds": {
+      "x": 0.18058084772370486,
+      "y": 0.732778649921507,
+      "width": 0.12,
+      "height": 0.12
+    },
+    "primaryLabel": {
+      "category": "animal",
+      "tag": "fish"
+    },
+    "labels": [
+      {
+        "category": "animal",
+        "tag": "fish"
+      }
+    ],
+    "filename": "images_004_c8_animal_fish.jpg",
+    "createdAt": "2026-08-25T08:00:36.626Z"
+  },
+  {
+    "id": "images_005",
+    "source": "images.jpeg",
+    "serial": 5,
+    "grid": {
+      "resolution": 10,
+      "centre": "C2",
+      "bounds": {
+        "start": "B1",
+        "end": "C3"
+      }
+    },
+    "bounds": {
+      "x": 0.16488226059654632,
+      "y": 0.08285714285714285,
+      "width": 0.12,
+      "height": 0.12
+    },
+    "primaryLabel": {
+      "category": "animal",
+      "tag": "fish"
+    },
+    "labels": [
+      {
+        "category": "animal",
+        "tag": "fish"
+      }
+    ],
+    "filename": "images_005_c2_animal_fish.jpg",
+    "createdAt": "2026-08-25T08:00:38.103Z"
+  },
+  {
+    "id": "images_006",
+    "source": "images.jpeg",
+    "serial": 6,
+    "grid": {
+      "resolution": 10,
+      "centre": "G5",
+      "bounds": {
+        "start": "G2",
+        "end": "H8"
+      }
+    },
+    "bounds": {
+      "x": 0.6080125588697017,
+      "y": 0.1787001569858711,
+      "width": 0.11599999999999998,
+      "height": 0.5280000000000004
+    },
+    "primaryLabel": {
+      "category": "animal",
+      "tag": "fish"
+    },
+    "labels": [
+      {
+        "category": "animal",
+        "tag": "fish"
+      }
+    ],
+    "filename": "images_006_g5_animal_fish.jpg",
+    "createdAt": "2026-08-25T08:09:36.118Z"
+  },
+  {
+    "id": "images_007",
+    "source": "images.jpeg",
+    "serial": 7,
+    "grid": {
+      "resolution": 10,
+      "centre": "D7",
+      "bounds": {
+        "start": "A7",
+        "end": "G8"
+      }
+    },
+    "bounds": {
+      "x": 0.07287912087912074,
+      "y": 0.6475981161695447,
+      "width": 0.5960000000000003,
+      "height": 0.07999999999999999
+    },
+    "primaryLabel": {
+      "category": "animal",
+      "tag": "bird"
+    },
+    "labels": [
+      {
+        "category": "animal",
+        "tag": "bird"
+      }
+    ],
+    "filename": "images_007_d7_animal_bird.jpg",
+    "createdAt": "2026-08-25T08:10:19.839Z"
+  }
+]

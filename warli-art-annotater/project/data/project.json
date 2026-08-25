@@ -1,5 +1,11 @@
 {
   "projectName": "Warli Art Annotater",
   "defaultGrid": 10,
-  "tagShortcuts": {}
+  "tagShortcuts": {
+    "animal": {
+      "fish": "f",
+      "cow": "c",
+      "bird": "b"
+    }
+  }
 }

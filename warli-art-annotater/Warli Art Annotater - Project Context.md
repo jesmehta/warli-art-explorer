@@ -1,4 +1,4 @@
-# Warli Art Annotater — Project Context
+# Warli Art Annotater - Project Context
 
 ## Purpose
 
@@ -565,3 +565,113 @@ Significant tweaking is expected.
 When modifying the application, preserve this document as the description of **project intent** rather than assuming every current implementation detail represents a permanent requirement.
 
 If implementation and project intent diverge, document the decision rather than silently changing the underlying model.
+
+---
+
+# Documentation and Change Records
+
+Keep the project's three documentation roles distinct and update them with relevant implementation changes:
+
+## README
+
+`README.md` is the single authoritative product and operating guide. It describes the project purpose, current live version, setup, controls, workflow, data model, storage, architecture, and user-visible behavior. A user or new contributor should be able to understand and operate the current application without reading historical entries.
+
+## Changelog
+
+Maintain the chronological technical record. Note additions, changes, fixes, removals, data/schema changes, and implementation details under the current version or an Unreleased section.
+
+## Project Context and Decision Record
+
+Preserve the longer-term intent, architectural constraints, and reasoning behind meaningful design changes. Record why a behavior was chosen, what problem it addresses, and which invariants future changes should preserve.
+
+A control or feature change may therefore require updates in all three places, but each document should explain it from its own perspective rather than repeating identical text.
+
+Documentation filenames and prose should avoid em dashes. Use ordinary hyphens in filenames and headings, colons for definition-style separators, and commas or parentheses within prose. This keeps names easy to type and avoids encoding ambiguity across shells and tools.
+
+---
+
+# Decision Record
+
+## Shape-preserving mouse-wheel resizing - 2026-08-25
+
+### Intent
+
+Provide a quick continuous way to adjust the overall crop size without losing a deliberately established rectangle or square.
+
+### Decision
+
+The mouse wheel scales width and height together by the same factor. Scrolling up enlarges the region and scrolling down reduces it. The crop remains centred on the mouse.
+
+### Invariants
+
+- A square remains square.
+- A rectangle retains its aspect ratio.
+- The mouse remains the centre of the intended crop.
+- Arrow controls remain available for changing width or height independently.
+- Bracket controls remain available for explicitly returning to and resizing a square.
+
+## Tag and shortcut adjacency - 2026-08-25
+
+### Intent
+
+Make the shortcut's relationship to the selected tag immediately visible and use sidebar space more efficiently.
+
+### Decision
+
+Display the primary Tag selector and Shortcut editor side by side. This is a presentation change only; shortcut persistence and per-category behavior remain unchanged.
+
+## Consistent sidebar label pairs - 2026-08-25
+
+### Intent
+
+Make primary and additional labels readable as the same underlying `category → tag` structure, and prevent vocabulary-management controls from competing visually with annotation controls.
+
+### Decision
+
+- Display Category and Tag side by side for both primary and extra labels.
+- Add Shortcut as a compact third field on the primary-label row because it configures the selected primary tag.
+- Group Primary label, Extra labels, Edit vocabulary, and Crop into separate visual sections.
+- Keep category/tag creation available in the sidebar, but separate it from the fields used for the current annotation.
+
+### Invariants
+
+- Primary and extra labels continue to use the same persisted category/tag schema.
+- Sidebar reorganization must not change saved crop metadata or label vocabulary formats.
+- Shortcut persistence remains per category and tag.
+
+## Warm functional visual language - 2026-08-25
+
+### Intent
+
+Give the annotater a visual identity related to its Warli subject matter while keeping the interface quiet, legible, and suitable for long working sessions.
+
+### Decision
+
+- Use a modern native UI font stack for clarity without adding a web-font dependency.
+- Use natural paper and warm panel backgrounds with dark earth text.
+- Use clay as the main interaction color and ochre for hover or active emphasis.
+- Carry the same palette into crop overlays so the canvas and interface feel like one system.
+- Keep decoration restrained; annotation speed and visual clarity remain more important than thematic ornament.
+
+### Invariants
+
+- Text and controls must retain strong contrast.
+- Keyboard focus must remain clearly visible.
+- Color should reinforce state but must not be the only indicator of selection or disabled controls.
+
+## Single authoritative README - 2026-08-25
+
+### Intent
+
+Remove ambiguity between a short root README and a longer project-named README while retaining all useful project and operating information.
+
+### Decision
+
+Merge the unique content of both documents into `README.md`, then remove the redundant `Warli Art Annotater - README.md`. Keep Project Context for intent and design memory, and keep the Changelog for chronological technical history.
+
+### Invariants
+
+- README consolidation must not discard setup instructions, controls, workflow, interface behavior, grid semantics, label behavior, storage details, architecture, or development principles.
+- `README.md` describes the current product rather than serving as a historical log.
+- Design reasoning remains in Project Context.
+- Chronological implementation history remains in the Changelog.

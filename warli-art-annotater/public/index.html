@@ -19,22 +19,38 @@
       <canvas id="canvas"></canvas>
       <div id="tagCloud" class="tag-cloud hidden"></div>
     </div>
-    <div class="help">Mouse: position · Click: choose tag/capture · Shortcut + click: instant capture · [ / ]: square size · Arrows: push one edge outward · Shift + arrow: pull it inward · Alt: fine step · Ctrl/Cmd+Z: undo · Delete: delete selected</div>
+    <div class="help">Mouse: position · Wheel: resize current shape · Click: choose tag/capture · Shortcut + click: instant capture · [ / ]: square size · ←/→: width · ↑/↓: height · Alt: fine step · Ctrl/Cmd+Z: undo · Delete: delete selected</div>
   </section>
   <aside>
-    <h3>Primary label</h3>
-    <label>Category<select id="cat"></select></label>
-    <label>Tag<select id="tag"></select></label>
-    <label>Shortcut<input id="shortcut" maxlength="1" placeholder="key"></label>
-    <div class="inline"><input id="newCat" placeholder="new category"><button id="addCat">+</button></div>
-    <div class="inline"><input id="newTag" placeholder="new tag"><button id="addTag">+</button></div>
-    <p class="note">Shortcuts are per category. Hold the key while clicking the image to capture immediately with that tag.</p>
-    <h3>Extra labels</h3>
-    <div id="extras"></div>
-    <button id="addExtra">+ Add label pair</button>
-    <h3>Crop</h3>
-    <div id="cropInfo">—</div>
-    <button id="delete" disabled>Delete selected</button>
+    <section class="sidebar-section">
+      <h3>Primary label</h3>
+      <div class="field-head primary-field-head"><span>Category</span><span>Tag</span><span>Key</span></div>
+      <div class="primary-label-row">
+        <select id="cat" aria-label="Primary category"></select>
+        <select id="tag" aria-label="Primary tag"></select>
+        <input id="shortcut" maxlength="1" placeholder="-" aria-label="Tag shortcut">
+      </div>
+      <p class="note">Hold the tag key while clicking the image to capture immediately.</p>
+    </section>
+
+    <section class="sidebar-section">
+      <h3>Extra labels</h3>
+      <div class="field-head extra-field-head"><span>Category</span><span>Tag</span></div>
+      <div id="extras"></div>
+      <button id="addExtra" class="wide-action">+ Add label pair</button>
+    </section>
+
+    <section class="sidebar-section">
+      <h3>Edit vocabulary</h3>
+      <div class="inline"><input id="newCat" placeholder="New category"><button id="addCat" aria-label="Add category">+</button></div>
+      <div class="inline"><input id="newTag" placeholder="New tag in selected category"><button id="addTag" aria-label="Add tag">+</button></div>
+    </section>
+
+    <section class="sidebar-section crop-section">
+      <h3>Crop</h3>
+    <div id="cropInfo">-</div>
+      <button id="delete" class="wide-action" disabled>Delete selected</button>
+    </section>
   </aside>
 </main>
 <section class="thumbs">

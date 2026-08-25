@@ -6,7 +6,38 @@ This project is currently in an early iterative prototyping phase. Version chang
 
 ---
 
-## v0.3 — Centred Crop Resizing
+## Unreleased - Annotation Control Refinements
+
+### Added
+
+- Added mouse-wheel resizing for the active crop region.
+- Scrolling up enlarges the crop and scrolling down reduces it.
+- Wheel resizing preserves the current aspect ratio: squares remain square and rectangles retain their proportions.
+- Wheel resizing remains symmetrical around the mouse position.
+
+### Changed
+
+- Consolidated the short and long project READMEs into one authoritative `README.md` without dropping their unique setup, workflow, control, interface, grid, label, storage, architecture, or development content.
+- Removed the now-redundant `Warli Art Annotater - README.md` after its unique material was merged into the root README.
+- Replaced em dashes in project text with commas, colons, hyphens, or simple placeholders according to context.
+- Renamed the three detailed documentation files to use ordinary hyphens, improving filename consistency and command-line compatibility.
+- Refreshed the interface typography and color system with a warm paper, earth, clay, and ochre palette suited to the Warli subject matter.
+- Restyled fields, buttons, panels, crop overlays, thumbnails, and focus states for clearer hierarchy and more comfortable extended use.
+- Placed the primary Tag selector and its Shortcut editor side by side to make their relationship clearer and reduce vertical space.
+- Reorganized the annotation sidebar into Primary label, Extra labels, Edit vocabulary, and Crop sections.
+- Standardized primary and extra label controls as aligned, side-by-side Category and Tag columns; the primary row includes a compact Key column.
+- Moved category/tag creation into a separate vocabulary-editing section so annotation choices and vocabulary management are visually distinct.
+- Corrected the in-application control guide so it describes the current centred arrow controls and mouse-wheel resizing.
+- Updated the live README version and control descriptions to match the v0.3 implementation.
+
+### Design decisions
+
+- Mouse-wheel resizing changes overall scale rather than independently changing width or height. This makes it a fast, shape-preserving complement to the dimension-specific arrow controls.
+- Shortcut editing stays visually adjacent to tag selection because a shortcut belongs to the selected tag, not to the category as a whole.
+
+---
+
+## v0.3 - Centred Crop Resizing
 
 ### Changed
 
@@ -16,17 +47,17 @@ This project is currently in an early iterative prototyping phase. Version chang
 
 ### Current rectangle controls
 
-- `←` — increase crop width.
-- `→` — decrease crop width.
-- `↑` — increase crop height.
-- `↓` — decrease crop height.
+- `←`: increase crop width.
+- `→`: decrease crop width.
+- `↑`: increase crop height.
+- `↓`: decrease crop height.
 
 Width and height change symmetrically around the mouse position.
 
 ### Current square controls
 
-- `[` — decrease overall square size.
-- `]` — increase overall square size.
+- `[`: decrease overall square size.
+- `]`: increase overall square size.
 - If the current crop is rectangular, using `[` or `]` first resets it to a square based on the average of its current width and height, then performs the resize.
 
 ### Design decision
@@ -39,7 +70,7 @@ This behaviour should be preserved unless deliberately reconsidered through test
 
 ---
 
-## v0.2 — Faster Annotation Interaction
+## v0.2 - Faster Annotation Interaction
 
 ### Added
 
@@ -77,7 +108,7 @@ The annotation workflow should favour:
 
 ---
 
-## v0.1 — Initial Working Prototype
+## v0.1 - Initial Working Prototype
 
 ### Added
 
@@ -173,11 +204,11 @@ Small fixes made between checkpoints do not necessarily require their own releas
 
 For future entries, record:
 
-- **Added** — new functionality
-- **Changed** — deliberate changes to existing behaviour
-- **Fixed** — bugs or unintended behaviour
-- **Removed** — functionality intentionally eliminated
-- **Data/Schema** — changes affecting persistent project data
-- **Design decisions** — important interaction or architectural choices future developers should understand
+- **Added**: new functionality
+- **Changed**: deliberate changes to existing behaviour
+- **Fixed**: bugs or unintended behaviour
+- **Removed**: functionality intentionally eliminated
+- **Data/Schema**: changes affecting persistent project data
+- **Design decisions**: important interaction or architectural choices future developers should understand
 
 Rejected approaches should sometimes remain in the changelog when they explain why the current interaction behaves as it does.

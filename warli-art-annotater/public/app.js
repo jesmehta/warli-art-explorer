@@ -169,8 +169,8 @@ function draw() {
   for (const r of sourceCrops()) {
     const b = r.bounds;
     const active = r.id === selected || r.id === hovered;
-    ctx.fillStyle = active ? 'rgba(255,220,0,.30)' : 'rgba(0,180,255,.18)';
-    ctx.strokeStyle = active ? 'rgba(255,220,0,.95)' : 'rgba(0,180,255,.70)';
+    ctx.fillStyle = active ? 'rgba(214,162,61,.32)' : 'rgba(147,76,53,.18)';
+    ctx.strokeStyle = active ? 'rgba(236,187,78,.98)' : 'rgba(180,96,68,.82)';
     ctx.lineWidth = active ? 2 : 1;
     ctx.fillRect(b.x * canvas.width, b.y * canvas.height, b.width * canvas.width, b.height * canvas.height);
     ctx.strokeRect(b.x * canvas.width, b.y * canvas.height, b.width * canvas.width, b.height * canvas.height);
@@ -197,6 +197,23 @@ canvas.addEventListener('mouseleave', () => {
   hovered = null;
   draw();
 });
+
+canvas.addEventListener('wheel', e => {
+  e.preventDefault();
+
+  const width = box.left + box.right;
+  const height = box.top + box.bottom;
+  const minSize = 0.008;
+  const maxSize = 0.8;
+  const requestedFactor = e.deltaY < 0 ? 1.08 : 1 / 1.08;
+  const minFactor = Math.max(minSize / width, minSize / height);
+  const maxFactor = Math.min(maxSize / width, maxSize / height);
+  const factor = clamp(requestedFactor, minFactor, maxFactor);
+
+  box.left = box.right = width * factor / 2;
+  box.top = box.bottom = height * factor / 2;
+  draw();
+}, { passive: false });
 
 canvas.addEventListener('click', e => {
   if (!current) return;
